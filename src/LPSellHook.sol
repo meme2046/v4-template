@@ -36,8 +36,8 @@ contract LPSellHook is BaseHook {
         SwapParams calldata params,
         bytes calldata
     ) internal pure override returns (bytes4, BeforeSwapDelta, uint24) {
-        // 交易者：zeroForOne = true token0 -> token1 LP: token1 -> token0
-        // 交易者：zeroForOne = false token1 -> token0 LP: token0 -> token1
+        // trader = true token0 -> token1 LP: token1 -> token0
+        // trader = false token1 -> token0 LP: token0 -> token1
         if (params.zeroForOne) {
             revert("Only buying token0 allowed");
         }

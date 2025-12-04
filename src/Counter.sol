@@ -49,7 +49,12 @@ contract Counter is BaseHook {
     // NOTE: see IHooks.sol for function documentation
     // -----------------------------------------------
 
-    function _beforeSwap(address, PoolKey calldata key, SwapParams calldata, bytes calldata)
+    function _beforeSwap(
+        address,
+        PoolKey calldata key, 
+        SwapParams calldata, 
+        bytes calldata
+    )
         internal
         override
         returns (bytes4, BeforeSwapDelta, uint24)
