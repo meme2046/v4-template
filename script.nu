@@ -23,4 +23,13 @@ def "main tb" [] {
     forge test --match-test testLPBuyHook  -vvv
 }
 
+def "main deploy" [] {
+    (forge script script/DeployBuyAndSellHooks.s.sol
+    --rpc-url $env.INFURA_ETH
+    --private-key $env.A1
+    --broadcast)
+}
 
+def "main env" [] {
+    print $env.INFURA_ETH
+}

@@ -116,7 +116,7 @@ contract HookTests is BaseTest {
     function testLPSellHook() public {
         console2.log("balance0", currency0.balanceOf(address(this)));
         console2.log("balance1", currency1.balanceOf(address(this)));
-        // token1->token0
+        // trader: token1->token0
         BalanceDelta swapDelta = swapRouter.swapExactTokensForTokens({
             amountIn: 10e18,
             amountOutMin: 0,
@@ -128,7 +128,7 @@ contract HookTests is BaseTest {
         });
         // amount0() 方法返回的是 token0 的数量变化
         assert(swapDelta.amount0() > 0);
-        // token0->token1
+        // trader: token0->token1
         vm.expectRevert();
         swapRouter.swapExactTokensForTokens({
             amountIn: 10e18,
